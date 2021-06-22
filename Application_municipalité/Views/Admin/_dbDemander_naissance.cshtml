@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Application_municipalité.Models.Demander__naissance>
+
+@{
+    ViewBag.Title = "Index";
+}
+<style>
+    .he {
+        margin-left: 30px;
+        border-left: 10px solid #484848;
+        border-right: 10px solid #484848;
+        background-color: #818181;
+        color: #282828;
+        font-family: Arial;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+</style>
+<h1 class="he">Demander naissance </h1>
+
+<table class="table">
+    <thead class=" thead-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.prenom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numéro_national_didentité)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Sexe)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.naissanceEx)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.intégrale)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Mariage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Prenom_mere)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nom_mère)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_naissance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Numéro_acte)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Année_établissement)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.prenom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numéro_national_didentité)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sexe)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.naissanceEx)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.intégrale)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mariage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prenom_mere)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom_mère)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_naissance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numéro_acte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Année_établissement)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.idD }) |
+                @Html.ActionLink("Details", "Details", new { id = item.idD }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.idD })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,148 @@
+﻿@model IEnumerable<Application_municipalité.Models.Demande>
+
+<script src="~/Scripts/chartjs/Chart.min.js"></script>
+<h4 style="text-align:center;" class="header">Charts </h4>
+<div class="row">
+    <div class="col-md-8" style="display:block; margin:0 auto; "  >
+        <p style="text-align:center;color:#22d1ee;margin:15px 0; font-weight:bolder;font-size:16px;">
+            Male / Female
+            <span class="glyphicon glyphicon-user"></span>
+        </p>
+        <canvas id="myChart"></canvas>
+    </div>
+    <br />
+    <div class="col-md-8" style="display:block; margin:0 auto; " >
+        <p style="text-align:center;color:#22d1ee;margin:15px 0; font-weight:bolder;font-size:16px;">
+            type of demande
+            <span class="glyphicon glyphicon-plus"></span>
+        </p>
+        <canvas id="myChart2"></canvas>
+    </div>
+</div>
+
+<div class="row">
+    <p style="text-align:center;color:#22d1ee;margin:15px 0; font-weight:bolder;font-size:16px;">
+    
+        <span class="glyphicon glyphicon-plus"></span>
+    </p>
+    <div class="col-md-12"><canvas id="myChart3"></canvas></div>
+</div>
+
+
+
+
+<script>
+
+ var ctx = document.getElementById('myChart').getContext('2d');
+ var ctx2 = document.getElementById('myChart2').getContext('2d');
+ var ctx3 = document.getElementById('myChart3').getContext('2d');
+
+
+
+    ///// chart 1 male/female
+
+    var Ar = [];
+
+    var array = @Html.Raw(Json.Encode(Model.Select(user => new{sexe = user.Sexe})));
+
+     var AM = @Html.Raw( Json.Encode(Model.Count(user => user.Sexe==true)));
+
+    var AF = @Html.Raw(Json.Encode(Model.Count(user => user.Sexe==false)));
+
+
+
+
+       for (var i = 0; i < array.length; i++) {
+                Ar[i] = array[i].sexe;
+            }
+            Ar = Array.from(new Set(Ar));
+
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+             type: 'pie',
+
+            // The data for our dataset
+            data: {
+                labels: Ar,
+                datasets: [{
+                    label: 'My First dataset',
+                    backgroundColor: ['#22d1ee ','#fc5185 '],
+                    borderColor: '#22d1ee',
+                    data: [AM, AF],
+                    borderWidth:0
+
+                }]
+            },
+
+            // Configuration options go here
+            options: {}
+        });
+
+//// Fine chart 1
+
+
+//// chart 2
+
+
+    var array2 = @Html.Raw(Json.Encode(Model.Select(c=> new { a = c.typedeDemander ,b = c.idD}).GroupBy(c=>c.a)));
+    var Ar2 = [];
+    var Acount = [];
+    for (var i = 0; i < array2.length; i++) {
+        Ar2[i] = array2[i][0].a;
+        Acount[i] = array2[i].length;
+    }
+
+    console.log(Ar2);
+    console.log(Acount);
+
+     var chart = new Chart(ctx2, {
+            // The type of chart we want to create
+             type: 'bar',
+
+            // The data for our dataset
+            data: {
+                labels: Ar2,
+                datasets: [{
+                    label: 'type de demandes',
+                    backgroundColor: ['#242582 ','#553d67 ','#f64c72','#99738e','#2f2fa2'],
+                    borderColor: '#22d1ee',
+                    data:  Acount,
+                    borderWidth:0
+
+                }]
+            },
+
+            // Configuration options go here
+         options: {
+               responsive: true,
+           scales: {
+        xAxes: [{
+            barPercentage: 0.4,
+               }],
+         yAxes: [{
+              ticks: {
+                beginAtZero:true
+            }
+               }]
+
+           }}
+        });
+    ///fin chart 2
+
+
+</script>
+
+<style>
+    .header {
+        display: block;
+        height: 44px;
+        margin: 20px;
+        color: #22d1ee;
+        background-color: #0e153a;
+        font-family: 'Brandon Grotesque', Arial, sans-serif;
+        padding-top: 12px;
+        font-size: 15px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+</style>

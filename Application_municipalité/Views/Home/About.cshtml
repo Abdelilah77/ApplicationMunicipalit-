@@ -1,0 +1,89 @@
+﻿@{
+    ViewBag.Title = "About";
+}
+
+
+<div class="res">
+
+    <img src="~/ImgProject/imgForslid.jpg" />
+
+</div>
+<div class="jumbotron container">
+    <h1 class="display-4">l’état civil</h1>
+    <p class="lead">Les Dahirs du 4 septembre 1915 et du 8 Mars 1950 n’ont pas défini «l’état civil ». La nouvelle loi sur l’état civil lui a, par contre, donnée une définition complète et précise à travers laquelle elle matérialise ses thèmes et fixe son champ d’application.</p>
+    <hr class="my-4">
+    <p>
+        Par consignation des faits d'état civil, on entend :
+
+        L’inscription des déclarations des naissances et décès reçues par l’officier de l’état civil aux lieux de leurs survenances sur des actes indépendants contenues dans des registres tenus spécialement à cet effet .Ils sont ensuite assortis de la signature de l’officier d’état civil compétent qui leur confère l’authenticité. Ces actes ainsi dressés permettent l’indentification des individus qui y sont inscrits.
+        La consignation en marge des actes de naissances des mentions sommaires relatives au mariage et au divorce
+    </p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </p>
+</div>
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-4 ">
+                <div class="card mb-4 box-shadow eee">
+                    <div class="container p-4">
+                        <h4 style="text-align:center ;color:#5f5e5e"> Demander une copie d'acte de naissance</h4>
+                    </div>
+
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" src="~/ImgProject/cadre-1.png" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" data-holder-rendered="true">
+                    <div class="card-body">
+                        <p class="card-text">Pour une demande d'extrait sans filiation, vous devez indiquer la date de naissance et les nom et prénoms de la personne concernée.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success">
+                                    @Html.ActionLink("Demander_naissance", "Demander_naissance", "Demander", null, new { @class = "btn btn-success" })
+
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="card mb-4 box-shadow eee">
+                    <div class="container p-4">
+                        <h4 style="text-align:center ;color:#5f5e5e"> Saisir une demande de pré-déclaration de naissance</h4>
+                    </div>
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="~/ImgProject/cadre-2.png" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                    <div class="card-body">
+                        <p class="card-text">la déclaration de naissance ou de décès sera faite dans un délai de 30 jours</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                               
+                                    @Html.ActionLink("declaration_naissance", "declaration_naissance", "Demander", null, new { @class = "btn btn-success" })
+                                  
+                               
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 ">
+                <div class="card mb-4 box-shadow eee">
+                    <div class="container p-4">
+                        <h4 style="text-align:center ;color:#5f5e5e"> Saisir une demande de livret famille</h4>
+                    </div>
+                    <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" src="~/ImgProject/cadre-3.png" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                    <div class="card-body">
+                        <p class="card-text">Le livret de famille est un document officiel remis à la naissance du 1er enfant ou lors du mariage</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="btn-group">
+                                @Html.ActionLink("demande_livret_famille", "demande_livret_famille", "Demander", null, new { @class = "btn btn-success" })
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+</div></div></div>

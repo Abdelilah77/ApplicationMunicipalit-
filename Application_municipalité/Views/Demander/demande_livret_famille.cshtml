@@ -1,0 +1,208 @@
+﻿
+@model Application_municipalité.Models.demande__livret_famille
+<style>
+    .titre {
+        background-color: orangered;
+        color: aliceblue;
+        padding: 20px;
+        margin: 20px;
+        border-left: 10px solid #202434;
+    }
+
+    .row {
+        padding: 3px;
+    }
+</style>
+<h2 class="titre">Saisir une demande de livret famille</h2>
+
+<div class="container">
+
+
+    @using (Html.BeginForm("demande_livret_famille", "Demander", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="prenomAr" class="control-label col-lg-6">type de demande </label>
+
+
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.DropDownListFor(model => model.type_de_demande, new List<SelectListItem>
+{
+                                                           new SelectListItem{ Text="Demande d'obtention d'une copie du livret de famille par l'épouse, le divorcé ou le représentant légal     ", Value = "1" },
+                                                           new SelectListItem{ Text="Demande de remplacement du livret d'identité et d'état civil dans le livret de famille", Value = "2" },
+                                                           new SelectListItem{ Text="Demande d'obtention de l'équivalent du livret de famille par le mari en cas de perte ou de disparition", Value = "3" },
+                                                           new SelectListItem{ Text="Demande d'obtention du livret de famille par le mari", Value = "4" } }
+                                                            , new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.nom, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="prenomAr" class="control-label col-lg-6">Territoire: </label>
+
+
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.Territoire, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Territoire, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="prenomMereAr" class="control-label col-lg-6">nom :</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.nom, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.nom, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="nomMereAr" class="control-label col-lg-6">prenom:</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.prenom, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.prenom, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="prenomMereAr" class="control-label col-lg-6">Numéro_national_didentité</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.Numéro_national_didentité, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Numéro_national_didentité, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="prenomMereAr" class="control-label col-lg-6">Communauté :</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.Communauté, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Communauté, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="nomMereAr" class="control-label col-lg-6">Adresse:</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.Adresse, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Adresse, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="prenomPereAr" class="control-label col-lg-6">Numéro de naissance :</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.Numéro_de_naissance, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Numéro_de_naissance, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+
+                    <label for="dateNaissance_jj" class="control-label col-lg-6">pour un an :</label>
+
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.pour_un_an, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.pour_un_an, "", new { @class = "text-danger" })
+                    </div>
+
+
+                    <span id="ctl0_CONTENU_PAGE_acteNaissance_ctl27" style="display: none; color: red; visibility: hidden;"><span title="Champ obligatoire" class="check-invalide"><img src="./Guichet électronique de commande de documents administratifs - Demande_files/picto-check-not-ok.gif" alt="Champ obligatoire"></span></span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+
+                    <label for="dateNaissance_jj" class="control-label col-lg-6">situation familiale :</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.DropDownListFor(model => model.situation_familiale, new List<SelectListItem>
+{
+                                                           new SelectListItem{ Text="Veuf(ve)", Value = "Veuf(ve)" },
+                                                           new SelectListItem{ Text="marié", Value = "marié" },
+                                                           new SelectListItem{ Text="Divorcé", Value = "Divorcé" },
+                                                           }, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.situation_familiale, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom:10px">
+            <div class="col-lg-12">
+                <label for="dateNaissance_jj" class="control-label col-lg-6">Numero livret de famille:</label>
+                <div class="form-group col-lg-6">
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.Nlivret_de_famille, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nlivret_de_famille, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="prenomMereAr" class="control-label col-lg-6">prenom du mari :</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.prenom_du_mari, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.prenom_du_mari, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="dateNaissance_jj" class="control-label col-lg-6">nom du mari:</label>
+
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.nom_du_mari, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.nom_du_mari, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <br>
+        <div class="f1-buttons">
+            <input type="submit" name="ctl0$CONTENU_PAGE$acteNaissance$etapePrecedente" value="Etape précédente" id="ctl0_CONTENU_PAGE_acteNaissance_etapePrecedente" class="btn btn-previous pull-left">
+            <input type="submit" name="ctl0$CONTENU_PAGE$acteNaissance$etapeSuivante" value="Etape suivante" id="ctl0_CONTENU_PAGE_acteNaissance_etapeSuivante" class="btn btn-next">
+        </div>
+
+    }
+    <script>
+        var a = document.getElementById('dateNaissance_aa');
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            for (var i = 0; i < 60; i++) {
+                var F = document.createElement('option');
+                F.value = i;
+                F.text = i;
+                a.appendChild(F);
+            }
+        });
+    </script>

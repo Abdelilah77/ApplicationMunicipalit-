@@ -1,0 +1,118 @@
+﻿<body>
+    <style>
+        #sidebar {
+            background-color: gray !important;
+            height: 100vh;
+        }
+        .search-table-outter {
+            overflow-x: scroll;
+          
+        }
+    </style>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    @Scripts.Render("~/Scripts/jquery.unobtrusive-ajax.min.js")
+    <link href="~/Mystyle/style.css" rel="stylesheet" />
+    <div class="wrapper d-flex align-items-stretch">
+        <nav id="sidebar">
+
+            <div class="p-4 pt-5">
+                <h1 style="text-align:center"><a href="index.html" class="logo"><img src="~/ImgProject/logo.png" alt="Alternate Text" /></a></h1>
+                <ul class="list-unstyled components mb-5">
+
+                    <li>
+                        @Ajax.ActionLink("dbDemande", "dbDemande", new AjaxOptions()
+                   {
+                       HttpMethod = "POST",
+                       UpdateTargetId = "RmplaceHere",
+                       InsertionMode = InsertionMode.Replace,
+                       OnSuccess= "myfunction2()"
+
+
+                   })
+                    </li>
+
+                    <li>
+                        @Ajax.ActionLink("dbDemander_naissance", "dbDemander_naissance", new AjaxOptions()
+                {
+                   HttpMethod = "POST",
+                   UpdateTargetId = "RmplaceHere",
+                   InsertionMode = InsertionMode.Replace
+
+                })
+                    </li>
+                    <li>
+                        @Ajax.ActionLink("dbDeclaration_naissance", "dbDeclaration_naissance", new AjaxOptions()
+               {
+                  HttpMethod = "POST",
+                  UpdateTargetId = "RmplaceHere",
+                  InsertionMode = InsertionMode.Replace
+
+               })
+                    </li>
+                    <li>
+                        @Ajax.ActionLink("dbDemande__livret_famille", "dbDemande__livret_famille", new AjaxOptions()
+               {
+                  HttpMethod = "POST",
+                  UpdateTargetId = "RmplaceHere",
+                  InsertionMode = InsertionMode.Replace
+
+               })
+                    </li>
+                    <li>
+                        @Ajax.ActionLink("Statistique", "chart", new AjaxOptions()
+               {
+                  HttpMethod = "POST",
+                  UpdateTargetId = "RmplaceHere",
+                  InsertionMode = InsertionMode.Replace
+
+               })
+                    </li>
+                    <li>
+                        @Html.ActionLink("Log out", "Log_Out", "Admin", null, new { @class = "btn btn-danger" })
+                    </li>
+                </ul>
+
+
+
+                <div class="footer">
+                    <p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy; Ministère de l'intérieur Etat civil © 2020-2021
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </p>
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="RmplaceHere" style=" overflow-y: scroll; max-height:100vh" class="p-4 p-md-5 pt-5 search-table-outter">
+
+
+        </div>
+        @Scripts.Render("~/bundles/jqueryval");
+    <style></style>
+</body>
+<script>
+    function myfunction2() {
+
+
+        console.log("tryyy");
+        var a = document.querySelectorAll("#change");
+        for (var i = 0; i < a.length; i++) {
+            if (a[i].checked == true) {
+                a[i].disabled = true;
+                a[i].parentElement.parentNode.style.backgroundColor = "#3ddb92";
+                
+            }
+            else {
+                a[i].parentElement.parentNode.style.backgroundColor = "#e46774";
+            }
+        }
+
+
+
+
+    };
+</script>
+

@@ -1,0 +1,313 @@
+﻿@model Application_municipalité.Models.declaration_naissance 
+<style>
+    .titre {
+        background-color: orangered;
+        color: aliceblue;
+        padding: 20px;
+        margin: 20px;
+        border-left: 10px solid #202434;
+    }
+    .row{
+        padding:10px;
+    }
+</style>
+<h2 class="titre">Demander une copie d'acte de naissance</h2>
+
+<div class="container">
+
+
+    @using (Html.BeginForm("declaration_naissance", "Demander", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <input name="typ" value="declaration_naissance" disabled="disabled" hidden />
+
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="prenomAr" class="control-label col-lg-6">Nom </label>
+
+
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.nom, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.nom, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="prenomAr" class="control-label col-lg-6">Prenom </label>
+
+
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.prenom, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.prenom, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="prenomMereAr" class="control-label col-lg-6">Cin</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        <input name="cin" type="text" id="ctl0_CONTENU_PAGE_acteNaissance_prenomMereAr" class="form-control">
+                        <span id="ctl0_CONTENU_PAGE_acteNaissance_ctl20" style="display: none; color: red; visibility: hidden;"><span title="Champ obligatoire" class="check-invalide"><img src="./Guichet électronique de commande de documents administratifs - Demande_files/picto-check-not-ok.gif" alt="Champ obligatoire"></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="prenomMereAr" class="control-label col-lg-6">Prénom de la mère :</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.Prenom_mere, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Prenom_mere, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="nomMereAr" class="control-label col-lg-6">Nom de la mère :</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.Nom_mère, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Nom_mère, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="prenomPereAr" class="control-label col-lg-6">Prénom du père :</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        @Html.EditorFor(model => model.Prenom_mere, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Prenom_mere, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+
+                    <label for="dateNaissance_jj" class="control-label col-lg-6">heure de naissance :</label>
+                    <div class="row col-lg-6">
+                        <div class="col-xs-2" style="padding-left: 0;padding-right: 0;width: 70px;">
+                            <select name="hr" id="dateNaissance_jj" class="form-control" title="Jour">
+                                <option value="00">00</option>
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option selected="selected" value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+
+                            </select>
+                        </div>
+                        <div class="col-xs-2" style="margin-left:3px; padding-left: 0;padding-right: 0;width: 70px; align-self:center">
+                            <label for="" class="control-label col-lg-6">minute </label>
+                        </div>
+                        <div class="col-xs-2" style="padding-left: 0;padding-right: 0;width: 85px;">
+
+                            <select name="min" id="dateNaissance_aa" class="form-control" title="Jour">
+                            </select>
+                        </div>
+                    </div>
+                    <span id="ctl0_CONTENU_PAGE_acteNaissance_ctl27" style="display: none; color: red; visibility: hidden;"><span title="Champ obligatoire" class="check-invalide"><img src="./Guichet électronique de commande de documents administratifs - Demande_files/picto-check-not-ok.gif" alt="Champ obligatoire"></span></span>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+
+                    <label for="dateNaissance_jj" class="control-label col-lg-6">Date de naissance :</label>
+                    <div class="row col-lg-6">
+                        <div class="col-xs-2" style="padding-left: 0;padding-right: 0;width: 70px;">
+                            <select name="day" id="dateNaissance_jj" class="form-control" title="Jour">
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option selected="selected" value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                                <option value="31">31</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-2" style="padding-left: 0;padding-right: 0;width: 70px;">
+                            <select name="month" id="dateNaissance_mm" class="form-control" title="Mois">
+                                <option value="01">01</option>
+                                <option value="02">02</option>
+                                <option value="03">03</option>
+                                <option value="04">04</option>
+                                <option value="05">05</option>
+                                <option selected="selected" value="06">06</option>
+                                <option value="07">07</option>
+                                <option value="08">08</option>
+                                <option value="09">09</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-2" style="padding-left: 0;padding-right: 0;width: 85px;">
+                            <select name="year" id="dateNaissance_aa" class="form-control" title="Année">
+                                <option>2021</option>
+                            </select>
+                        </div>
+                    </div>
+                    <span id="ctl0_CONTENU_PAGE_acteNaissance_ctl27" style="display: none; color: red; visibility: hidden;"><span title="Champ obligatoire" class="check-invalide"><img src="./Guichet électronique de commande de documents administratifs - Demande_files/picto-check-not-ok.gif" alt="Champ obligatoire"></span></span>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom:10px">
+            <div class="col-lg-12">
+                <div class="form-group col-lg-12">
+
+                    <label class="control-label col-lg-"> type de naissance :</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        <label class="radio-inline">
+                            <input id="ctl0_CONTENU_PAGE_acteNaissance_sexeMasculin" type="radio" name="ty" value="1" checked="checked">
+                            un né
+                        </label>
+                        <label class="radio-inline">
+                            <input id="ctl0_CONTENU_PAGE_acteNaissance_sexeFeminin" type="radio" name="ty" value="2">
+                            jumeaux
+                        </label>
+                        <label class="radio-inline">
+                            <input id="ctl0_CONTENU_PAGE_acteNaissance_sexeFeminin" type="radio" name="ty" value="3">
+                            3 jumeaux
+                        </label>
+                        <label class="radio-inline">
+                            <input id="ctl0_CONTENU_PAGE_acteNaissance_sexeFeminin" type="radio" name="ty" value="4">
+                            4 jumeaux
+                        </label>
+                        <label class="radio-inline">
+                            <input id="ctl0_CONTENU_PAGE_acteNaissance_sexeFeminin" type="radio" name="ty" value="4+">
+                            plus
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    type de naissance
+                    <label class="control-label col-lg-6">Sexe :</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        <label class="radio-inline">
+                            <input id="ctl0_CONTENU_PAGE_acteNaissance_sexeMasculin" type="radio" name="sexe" value="Masculin" checked="checked">
+                            Masculin
+                        </label>
+                        <label class="radio-inline">
+                            <input id="ctl0_CONTENU_PAGE_acteNaissance_sexeFeminin" type="radio" name="sexe" value="Feminin">
+                            Féminin
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    type de naissance
+                    <label class="control-label col-lg-6">né a :</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        <label class="radio-inline">
+                            <input id="m" type="radio" name="stat" value="maroc" checked="checked">
+                            Maroc
+                        </label>
+                        <label class="radio-inline">
+                            <input id="o" type="radio" name="stat" value="autre">
+                            Autre
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="numActe" class="control-label col-lg-6">Territoire :</label>
+                    <div class="col-lg-6" style="padding-left: 0;padding-right: 0;">
+                        <input name="Territoiree" type="text" id="ctl0_CONTENU_PAGE_acteNaissance_numActe" class="form-control">
+                        <span id="ctl0_CONTENU_PAGE_acteNaissance_ctl32" style="display: none; color: red; visibility: hidden;"><span title="Champ obligatoire" class="check-invalide"><img src="./Guichet électronique de commande de documents administratifs - Demande_files/picto-check-not-ok.gif" alt="Champ obligatoire"></span></span>
+                        <div><a href="https://www.watiqa.ma/index.php5?page=citoyen.FormulaireCommande#" data-target="#modalInformationsActe" data-toggle="modal">Où trouver cette information ?</a></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="form-group col-lg-12">
+                    <label for="anneeActe" class="control-label col-lg-6 TEXT-NOWRAP">Communauté/District:</label>
+                    <input name="Communautee" type="text" id="ctl0_CONTENU_PAGE_acteNaissance_numActe" class="form-control">
+                </div>
+            </div>
+        </div>
+
+
+        <br>
+        <div class="f1-buttons">
+            <input type="submit" name="ctl0$CONTENU_PAGE$acteNaissance$etapePrecedente" value="Etape précédente" id="ctl0_CONTENU_PAGE_acteNaissance_etapePrecedente" class="btn btn-previous pull-left">
+            <input type="submit" name="ctl0$CONTENU_PAGE$acteNaissance$etapeSuivante" value="Etape suivante" id="ctl0_CONTENU_PAGE_acteNaissance_etapeSuivante" class="btn btn-next">
+        </div>
+
+    }
+    <script>
+        var a = document.getElementById('dateNaissance_aa');
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            for (var i = 0; i < 60; i++) {
+                var F = document.createElement('option');
+                F.value = i;
+                F.text = i;
+                a.appendChild(F);
+            }
+        });
+    </script>
